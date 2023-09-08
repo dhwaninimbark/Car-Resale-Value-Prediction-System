@@ -1,0 +1,98 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head> 
+<link href="{{ url_for('static', filename = 'bootstrap.css') }}"  rel="stylesheet" >
+<title> test page - Flaskkkk </title>
+
+<style>
+
+body {
+  background-image: url({{ url_for('static', filename = 'car.jpg') }});
+  background-size: 2500px 1000px;
+}
+
+input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+h2 {
+    margin-top: 35px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif
+  }
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 35px;
+  margin-top: 40px;
+  margin-right: 250px;
+  margin-left: 250px;
+  margin-bottom: 50px;
+}
+</style>
+
+
+
+</head>
+<body> <center><h2>CAR RESALE VALUE PREDICTION</h2></body></center>
+
+<div>
+    <form action="{{url_for('display')}}"method="post">
+
+        Name: <input type="text" name="fname" required>
+
+        <label name="city">Cityyy: </label>
+        <select id="city" name="city" required>
+        <option value="0">Ahmedabad</option>
+        <option value="1">Mumbai</option>
+        <option value="2">Hydrabad</option>
+        <option value="3">Kolkata</option>
+        <option value="4">Pune</option>
+        <option value="5">Delhi</option>
+        </select>
+
+        kms driven: <input name="kms" type="number" placeholder="25000" required> </br>
+
+        Year of purchase: <input name="model" type="number" placeholder="2018" required> </br>
+
+        <label name="fuel">Fuel: </label>
+        <select id="fuel" name="fuel" required>
+        <option value="2">Petrol</option>
+        <option value="1">Deisel</option>
+        <option value="3">Petrol+CNG</option>
+        </select>
+
+        <input type="submit" value="Predict"></input>
+    </form>
+    <p> {{model}} Maruti Swift car with fuel type {{fuel}} and kms driven {{km}}</p>
+    <p> <h3>YOUR CAR WILL BE SOLD AT: {{answer}} </h3> </p>
+    </br>
+    <h4>Note: Consider variation of 30,000 INR. This model is trained for Maruti Swift cars only.</h4>
+    <h4>To verify the output of our model, check the same specs on <a href="https://www.cars24.com">CARS24</a> </h4>
+</div>
+
+
+
+
+</html>
